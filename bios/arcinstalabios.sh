@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Pasos para instalar ARch LInux
 
 #Pone el teclado en Español.
