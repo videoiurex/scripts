@@ -1,6 +1,5 @@
 #Entrar al sistema
 set -x
-arch-chroot /mnt
 
 #Asignar nombre al equipo
 echo ArchZeus > /etc/hostname
