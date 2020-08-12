@@ -8,7 +8,8 @@ echo ArchZeus > /etc/hostname
 ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 
 #Configurar Idioma
-nano /etc/locale.gen
+#nano /etc/locale.gen
+echo es_ES.UTF-8 UTF-8 >> /etc/locale.gen
 
 #Configurar el teclado
 echo KEYMAP=es > /etc/vconsole.conf
