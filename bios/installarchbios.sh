@@ -1,4 +1,4 @@
-#!/bin/#!/usr/bin/env bash
+#!/bin/bash
 
 set -x
 #particionar disco (debe ser de al menos 60GB)
