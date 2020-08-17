@@ -37,7 +37,7 @@ genfstab /mnt >> /mnt/etc/fstab
 echo ArchZeus >/mnt/etc/hostname
 
 #Configurar zona horaria
-arch-chroot /mnt ln -sf usr/share/zoneinfo/Europe/Madrid etc/localtime
+arch-chroot /mnt ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 
 #Configurar Idioma
 #nano /etc/locale.gen
