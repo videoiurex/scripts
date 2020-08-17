@@ -76,4 +76,4 @@ echo Pasword para zeus:
 arch-chroot /mnt passwd zeus
 
 #añadir grupo wheel a sudoers
-arch-chroit /mnt nano /etc/sudoers
+arch-chroot /mnt nano /etc/sudoers
