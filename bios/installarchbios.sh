@@ -59,10 +59,11 @@ arch-chroot /mnt grub-install /dev/sda
 arch-chrot /mnt os-prober
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
-#Preparar red en le arranque
+#Preparar red en el arranque
 arch-chroot /mnt systemctl enable NetworkManager.service
 
 #poner pass a root
+clear
 echo Pasword para root:
 arch-chroot /mnt passwd
 
@@ -70,8 +71,9 @@ arch-chroot /mnt passwd
 arch-chroot /mnt useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner,wheel -s /bin/bash zeus
 
 #Poner pass a zeus
+clear
 echo Pasword para zeus:
 arch-chroot /mnt passwd zeus
 
 #añadir grupo wheel a sudoers
-echo " %wheel ALL=(ALL) All" >> /mnt/etc/sudoers
+arch-chroit /mnt nano /etc/sudoers
