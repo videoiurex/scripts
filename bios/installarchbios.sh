@@ -37,7 +37,7 @@ genfstab /mnt >> /mnt/etc/fstab
 echo ArchZeus >/mnt/etc/hostname
 
 #Configurar zona horaria
-ln -sf /mnt/usr/share/zoneinfo/Europe/Madrid /mnt/etc/localtime
+arch-chroot /mnt ln -sf usr/share/zoneinfo/Europe/Madrid etc/localtime
 
 #Configurar Idioma
 #nano /etc/locale.gen
@@ -74,4 +74,4 @@ echo Pasword para zeus:
 arch-chroot /mnt passwd zeus
 
 #añadir grupo wheel a sudoers
-echo "%wheel ALL=(ALL) All" >>  /etc/sudoers
+echo "%wheel ALL=(ALL) All" >> /mnt/etc/sudoers
