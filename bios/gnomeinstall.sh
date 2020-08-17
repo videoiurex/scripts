@@ -10,12 +10,12 @@ sudo pacman -S xorg-server xorg-xinit mesa mesa-demos
 #pacman -Ss xf86-video 
 
 #Instalar driver de video
-sudo pacman -S  xf86-video-vmware
+sudo pacman -S  --noconfirm xf86-video-vmware
 
 #Instalar Gnome
-sudo pacman -S  gnome gnome-extra
+sudo pacman -S  --noconfirm gnome gnome-extra
 
 #Instalar gestor de inicio
-sudo pacman -S gdm
+sudo pacman -S --noconfirm gdm
 
 sudo systemctl enable gdm.service
