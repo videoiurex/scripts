@@ -2,7 +2,7 @@
 
 set -x
 #Instalar servidor X11
-sudo pacman -S --noconfirm xorg-server xorg-xinit mesa mesa-demos
+sudo pacman -S xorg-server xorg-xinit mesa mesa-demos
 #Para ver la tarjeta gráfica que tienes
 #lspci | grep VGA
 
@@ -10,12 +10,12 @@ sudo pacman -S --noconfirm xorg-server xorg-xinit mesa mesa-demos
 #pacman -Ss xf86-video 
 
 #Instalar driver de video
-sudo pacman -S --noconfirm xf86-video-vmware
+sudo pacman -S  xf86-video-vmware
 
 #Instalar Gnome
-sudo pacman -S --noconfirm gnome gnome-extra
+sudo pacman -S  gnome gnome-extra
 
 #Instalar gestor de inicio
-sudo pacman -S --noconfirm gdm
+sudo pacman -S gdm
 
 sudo systemctl enable gdm.service
