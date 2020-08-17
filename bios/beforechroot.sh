@@ -23,7 +23,7 @@ mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 
 #Instalar paquetes básicos
-pacstrap /mnt linux-lts linux-firmware base base-devel nano os-prober grub ntfs-3g networkmanager
+pacstrap /mnt linux-lts linux-firmware linux-lts-headers base base-devel nano os-prober grub ntfs-3g networkmanager
 
 #Crear fstab
 genfstab /mnt >> /mnt/etc/fstab
