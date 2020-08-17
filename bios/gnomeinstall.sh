@@ -10,7 +10,7 @@ sudo pacman -S xorg-server xorg-xinit mesa mesa-demos
 #pacman -Ss xf86-video 
 
 #Instalar driver de video
-pacman -S xf86-video-vmware
+sudo pacman -S xf86-video-vmware
 
 #Instalar Gnome
 pacman -S gnome gnome-extra
