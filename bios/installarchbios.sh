@@ -34,17 +34,17 @@ genfstab /mnt >> /mnt/etc/fstab
 ################################################################33
 
 #Asignar nombre al equipo
-arch-chroot /mnt echo ArchZeus > /etc/hostname
+echo ArchZeus >/mnt/etc/hostname
 
 #Configurar zona horaria
-arch-chroot /mnt ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+ln -sf /mnt/usr/share/zoneinfo/Europe/Madrid /mnt/etc/localtime
 
 #Configurar Idioma
 #nano /etc/locale.gen
-arch-chroot /mnt echo es_ES.UTF-8 UTF-8 >> /etc/locale.gen
+echo es_ES.UTF-8 UTF-8 >> /mnt/etc/locale.gen
 
 #Configurar el teclado
-arch-chroot /mnt echo KEYMAP=es > /etc/vconsole.conf
+echo KEYMAP=es > /mnt/etc/vconsole.conf
 arch-chroot /mnt echo LANG=es_ES.UTF-8 > /etc/locale.conf
 
 #Establecer los cambios hechos
