@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+
 #particionar disco (debe ser de al menos 60GB)
 parted /dev/sda mklabel msdos
 parted /dev/sda mkpart primary ext2 1MiB 512MiB
