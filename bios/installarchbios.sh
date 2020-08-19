@@ -49,12 +49,17 @@ mount /dev/sda1 /mnt/boot
 
 clear
 echo "CUATRO Instalar paquetes básicos"
-echo pacstrap /mnt linux-lts linux-firmware linux-lts-headers base base-devel nano os-prober \
+echo pacstrap /mnt linux-lts linux-firmware linux-lts-headers base base-devel nano os-prober 
 echo grub ntfs-3g networkmanager
 read -p "Pulsa ENTER para continuar..."
 #Instalar paquetes básicos
 pacstrap /mnt linux-lts linux-firmware linux-lts-headers base base-devel nano os-prober \
 grub ntfs-3g networkmanager
+
+clear
+echo crear  fstab
+echo genfstab /mnt >> /mnt/etc/fstab
+read -p "Pulsa ENTER para continuar..."
 
 #Crear fstab
 genfstab /mnt >> /mnt/etc/fstab
