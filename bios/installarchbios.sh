@@ -1,7 +1,15 @@
 #!/bin/bash
 
+clear
+echo Particionar disco (debe ser de al menos 60GB):
+echo parted /dev/sda mklabel msdos
+echo parted /dev/sda mkpart primary ext2 1MiB 512MiB
+echo parted /dev/sda set 1 boot on
+echo parted /dev/sda mkpart primary linux-swap 512MiB 4.5GiB
+echo parted /dev/sda mkpart primary ext4 4.5GiB 25.5GiB
+echo parted /dev/sda mkpart primary ext4 25.5GiB 100%
+read -p "Presione enter para ejecutar"
 
-#particionar disco (debe ser de al menos 60GB)
 parted /dev/sda mklabel msdos
 parted /dev/sda mkpart primary ext2 1MiB 512MiB
 parted /dev/sda set 1 boot on
@@ -9,13 +17,29 @@ parted /dev/sda mkpart primary linux-swap 512MiB 4.5GiB
 parted /dev/sda mkpart primary ext4 4.5GiB 25.5GiB
 parted /dev/sda mkpart primary ext4 25.5GiB 100%
 
-#formatear particiones
+clear
+echo Formatear particiones:
+echo mkfs.ext2 /dev/sda1
+echo mkswap /dev/sda2
+echo swapon /dev/sda2
+echo mkfs.ext4 /dev/sda3
+echo mkfs.ext4 /dev/sda4
+read -p "Presione enter para ejecutar"
+
 mkfs.ext2 /dev/sda1
 mkswap /dev/sda2
 swapon /dev/sda2
 mkfs.ext4 /dev/sda3
 mkfs.ext4 /dev/sda4
 
+clear
+echo #montar particiones
+echo mount /dev/sda3 /mnt
+echo mkdir /mnt/home
+echo mount /dev/sda4 /mnt/home
+echo mkdir /mnt/boot
+echo mount /dev/sda1 /mnt/boot
+read -p "Presione enter para ejecutar"
 #montar particiones
 mount /dev/sda3 /mnt
 mkdir /mnt/home
@@ -23,9 +47,17 @@ mount /dev/sda4 /mnt/home
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 
+clear
+echo #Instalar paquetes básicos
+echo pacstrap /mnt linux-lts linux-firmware linux-lts-headers base base-devel \
+	nano os-prober grub ntfs-3g networkmanager
+read -p "Presione enter para ejecutar"
 #Instalar paquetes básicos
-pacstrap /mnt linux-lts linux-firmware linux-lts-headers base base-devel nano os-prober grub ntfs-3g networkmanager
-
+pacstrap /mnt linux-lts linux-firmware linux-lts-headers base base-devel \
+	nano os-prober grub ntfs-3g networkmanager
+clear
+echo #Crear fstab
+echo "genfstab /mnt >> /mnt/etc/fstab"
 #Crear fstab
 genfstab /mnt >> /mnt/etc/fstab
 
