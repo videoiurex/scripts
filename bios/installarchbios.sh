@@ -1,15 +1,25 @@
 #!/bin/bash
 
 clear
+<<<<<<< HEAD
 echo Particionar disco (debe ser de al menos 60GB):
+=======
+echo "UNO Particionar disco (debe ser de al menos 60GB):"
+>>>>>>> 880b3f93c31227df57c752bfe8fc69a669550734
 echo parted /dev/sda mklabel msdos
 echo parted /dev/sda mkpart primary ext2 1MiB 512MiB
 echo parted /dev/sda set 1 boot on
 echo parted /dev/sda mkpart primary linux-swap 512MiB 4.5GiB
 echo parted /dev/sda mkpart primary ext4 4.5GiB 25.5GiB
+<<<<<<< HEAD
 echo parted /dev/sda mkpart primary ext4 25.5GiB 100%
 read -p "Presione enter para ejecutar"
 
+=======
+echo iparted /dev/sda mkpart primary ext4 25.5GiB 100%
+read -p "Pulsa ENTER para continuar..."
+#particionar disco (debe ser de al menos 60GB)
+>>>>>>> 880b3f93c31227df57c752bfe8fc69a669550734
 parted /dev/sda mklabel msdos
 parted /dev/sda mkpart primary ext2 1MiB 512MiB
 parted /dev/sda set 1 boot on
@@ -18,14 +28,23 @@ parted /dev/sda mkpart primary ext4 4.5GiB 25.5GiB
 parted /dev/sda mkpart primary ext4 25.5GiB 100%
 
 clear
+<<<<<<< HEAD
 echo Formatear particiones:
+=======
+echo "DOS formatear particiones"
+>>>>>>> 880b3f93c31227df57c752bfe8fc69a669550734
 echo mkfs.ext2 /dev/sda1
 echo mkswap /dev/sda2
 echo swapon /dev/sda2
 echo mkfs.ext4 /dev/sda3
 echo mkfs.ext4 /dev/sda4
+<<<<<<< HEAD
 read -p "Presione enter para ejecutar"
 
+=======
+read -p "Pulsa ENTER para continuar..."
+#formatear particiones
+>>>>>>> 880b3f93c31227df57c752bfe8fc69a669550734
 mkfs.ext2 /dev/sda1
 mkswap /dev/sda2
 swapon /dev/sda2
@@ -33,13 +52,21 @@ mkfs.ext4 /dev/sda3
 mkfs.ext4 /dev/sda4
 
 clear
+<<<<<<< HEAD
 echo #montar particiones
+=======
+echo "TRES montar particiones"
+>>>>>>> 880b3f93c31227df57c752bfe8fc69a669550734
 echo mount /dev/sda3 /mnt
 echo mkdir /mnt/home
 echo mount /dev/sda4 /mnt/home
 echo mkdir /mnt/boot
 echo mount /dev/sda1 /mnt/boot
+<<<<<<< HEAD
 read -p "Presione enter para ejecutar"
+=======
+read -p "Pulsa ENTER para continuar..."
+>>>>>>> 880b3f93c31227df57c752bfe8fc69a669550734
 #montar particiones
 mount /dev/sda3 /mnt
 mkdir /mnt/home
@@ -48,6 +75,7 @@ mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 
 clear
+<<<<<<< HEAD
 echo #Instalar paquetes básicos
 echo pacstrap /mnt linux-lts linux-firmware linux-lts-headers base base-devel \
 	nano os-prober grub ntfs-3g networkmanager
@@ -58,6 +86,16 @@ pacstrap /mnt linux-lts linux-firmware linux-lts-headers base base-devel \
 clear
 echo #Crear fstab
 echo "genfstab /mnt >> /mnt/etc/fstab"
+=======
+echo "CUATRO Instalar paquetes básicos"
+echo pacstrap /mnt linux-lts linux-firmware linux-lts-headers base base-devel nano os-prober \
+echo grub ntfs-3g networkmanager
+read -p "Pulsa ENTER para continuar..."
+#Instalar paquetes básicos
+pacstrap /mnt linux-lts linux-firmware linux-lts-headers base base-devel nano os-prober \
+grub ntfs-3g networkmanager
+
+>>>>>>> 880b3f93c31227df57c752bfe8fc69a669550734
 #Crear fstab
 genfstab /mnt >> /mnt/etc/fstab
 
