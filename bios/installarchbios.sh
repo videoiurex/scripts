@@ -113,4 +113,4 @@ arch-chroot /mnt passwd zeus
 
 #añadir grupo wheel a sudoers
 #arch-chroot /mnt nano /etc/sudoers
-arch-chroot cp -f sudoers /etc/sudoers
+cp -f sudoers /mnt/etc/sudoers
